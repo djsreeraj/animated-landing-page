@@ -1,8 +1,21 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Six_Caps, Poppins } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+
+const six_caps = Six_Caps({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-six-caps',
+  weight: '400', 
+})
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-poppins',
+  weight: ['400', '500', '700'], 
+})
 
 export const metadata: Metadata = {
   title: "Montoya – Creative Portfolio Theme",
@@ -15,8 +28,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${six_caps.variable} ${poppins.variable}`}>
+      <body className={poppins.className} bg-black-700>{children}</body>
     </html>
   );
 }
