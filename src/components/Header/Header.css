@@ -1,0 +1,17 @@
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 15;
+    overflow-y: auto;
+    left: 0;
+}
+
+.menu__title {
+    font-size: calc(1rem + 7.5vw);
+    line-height: calc(1rem + 6.5vw);
+    text-transform: lowercase;
+    transition: color 0.3s ease-in-out;
+}

@@ -13,12 +13,21 @@ const config: Config = {
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
         poppins: ['var(--font-poppins)', 'sans-serif'], 
         caps: ['var(--font-six-caps)', 'cursive'],
+      },
+      // Extend the utilities for scrollbar styling
+      utilities: {
+        '.hide-scrollbar': {
+          '-ms-overflow-style': 'none', // IE 10+
+          'scrollbar-width': 'none',    // Firefox
+          '&::-webkit-scrollbar': {
+            display: 'none',            // WebKit-based browsers
+          },
+        },
       },
     },
   },
