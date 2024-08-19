@@ -1,8 +1,19 @@
 import React from 'react'
 import Title from './Title'
 import { IconChevronDown } from '@tabler/icons-react'
+import { animate } from 'framer-motion';
 
 const HeroSection = () => {
+
+    const scrollToElement = () => {
+        const element = document.getElementById('bannercards');
+        if (element) {
+            element.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+    };
   return (
 
     <div id="top" className="flex flex-col justify-evenly h-screen ">
@@ -27,7 +38,7 @@ const HeroSection = () => {
             <div className='flex gap-7'>
                 <p className='text-sm font-medium'>Scroll to Explore</p>
 
-                <IconChevronDown color="white" size={24}  className='-mt-1'/>
+                <IconChevronDown style={{cursor: 'pointer'}} onClick={scrollToElement} color="white" size={24}  className='-mt-1'/>
                     
             </div>
             <div>

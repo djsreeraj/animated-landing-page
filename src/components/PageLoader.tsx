@@ -2,13 +2,17 @@
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
-const PageLoader = () => {
-    const [loading, setLoading] = useState(true);
+type PageLoaderProps = {
+    loading: boolean;
+    setLoading: (isActive: boolean) => void;
+  };
+
+const PageLoader = ({loading, setLoading } : PageLoaderProps) => {
 
     useEffect(() => {
         const timer = setTimeout(() => setLoading(false), 4500); 
         return () => clearTimeout(timer);
-    }, []);
+    }, [loading, setLoading ]);
 
     const rectangleVariants : Variants = {
         initial: {
@@ -60,7 +64,7 @@ const PageLoader = () => {
                           ease: 'backInOut'
                         }}
                        
-                        className="fixed bottom-10 w-full text-center text-white text-lg z-50"
+                        className="fixed bottom-10 w-full text-center text-neutral-500 text-md font-medium z-50"
                     >
                         Please wait, content is loading
                     </motion.div>

@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${six_caps.variable} ${poppins.variable}`}>
-      <body className={poppins.className} bg-black-700>{children}</body>
+      <body className={poppins.className}>{children}</body>
     </html>
   );
 }
