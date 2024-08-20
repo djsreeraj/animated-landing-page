@@ -19,7 +19,7 @@ const Title = ({ text, scalePivot } : {text : string, scalePivot: string}) => {
     };
 
   return (
-    <motion.div className="flex items-center justify-center text-xl">
+    <motion.div className="flex items-center justify-center text-xl" >
       {text.split('').map((e : string, index: number) => (
         <motion.span
           className="cursor-pointer font-caps inline-block overflow-hidden"
@@ -30,7 +30,8 @@ const Title = ({ text, scalePivot } : {text : string, scalePivot: string}) => {
           variants={textVariants}
           transition={{  stiffness: 300 }}
         >
-          {e}
+          {e === '-' ? ' ' : e}
+          
         </motion.span>
       ))}
     </motion.div>

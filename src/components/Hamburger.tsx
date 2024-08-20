@@ -1,6 +1,7 @@
 'use client'
 import React from 'react';
 import { motion } from 'framer-motion';
+import SlideText from './UI/SlideText';
 
 interface MenuToggleProps {
     isMenuOpen: boolean;
@@ -33,8 +34,10 @@ const MenuToggle = ({isMenuOpen, setIsMenuOpen} : MenuToggleProps) => {
   };
 
   return (
-    <div className='flex cursor-pointer gap-10'>
-        <p>Menu</p>
+    <div className='flex cursor-pointer gap-10 text-[0.9rem]'>
+
+       <SlideText text="Menu" />
+
         <motion.div
             initial={false}
             animate={isMenuOpen ? "open" : "closed"}

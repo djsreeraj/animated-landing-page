@@ -44,7 +44,8 @@ const Cursor = () => {
         transform: 'translate(-50%, -50%)',
         transition: 'width 0.6s ease, height 0.6s ease, border-width 0.6s ease',
         pointerEvents: 'none',
-        zIndex: 10000
+        zIndex: 10000,
+        opacity: hoverEffect ? 0 : 1,
     };
 
     return <div style={cursorRingStyle}></div>;
