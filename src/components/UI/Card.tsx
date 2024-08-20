@@ -1,4 +1,5 @@
 import React, {
+	useEffect,
 	useRef,
 } from "react";
 import { motion, useScroll } from "framer-motion";
@@ -12,20 +13,48 @@ type ICardProps = {
 
 export const Card = ({ title, imgUrl, video }: ICardProps) => {
 		const ref = useRef<HTMLDivElement>(null);
-		const { scrollYProgress } = useScroll({
-			target: ref,
-			offset: ["0.5 1", "1.33 1"],
-		});
+		// const { scrollYProgress } = useScroll({
+		// 	target: ref,
+		// 	offset: ["-10% start", "end start"],
+		// });
+
+		// useMotionValue(scrollYProgress, "change",
+		// 	(latest) => {
+		// 	console.log(latest)
+		// 	});
+
+		// const { scrollYProgress } = useScroll()
+
+		// useEffect(() => {
+		//   console.log(scrollYProgress)
+		// }, [scrollYProgress])
 
 		return (
-	<motion.div ref={ref}
+	<motion.section 
+
+	ref={ref}
 		// style={{
 		// 	scale: scrollYProgress,
-		// 	opacity: scrollYProgress
+		// 	opacity: scrollYProgress,
 		// }}
+		initial = {{
+			opacity: 0,
+			scale: 0,
+			y:-20
+		}}
+		whileInView={{
+			opacity: 1,
+			scale: 1,
+			y:-30
+
+		}}
+		viewport={{
+			margin:'200px'
+		}}
+		transition={{ duration: 0.5, delay: 0.25}}
 		className="relative h-[80vh] w-[90vw] overflow-hidden rounded-xl bg-inherit">
 			{/* Card content */}
-			<div className="relative h-full">
+			<div className="relative h-full" >
 				{/* Image */}
 					<Image
 						src={imgUrl}
@@ -42,7 +71,7 @@ export const Card = ({ title, imgUrl, video }: ICardProps) => {
 					<span id="badge" className="px-3 py-1 bg-neutral-500 rounded-2xl text-sm">{video ? 'Video' : 'Photo' }</span>
 				</div>
 			</div>
-	</motion.div>
+	</motion.section>
 
 		);
 	}

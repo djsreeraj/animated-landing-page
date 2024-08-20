@@ -55,7 +55,7 @@ const SkillSection = () => {
         }} 
         
         id="title"          
-        className={`relative text-xs bg-black ${isSticky ? 'sticky -top-8 z-50' : '' }`}
+        className={`relative text-xs bg-black ${isSticky ? 'sticky -top-8 z-48' : '' }`}
 >
             <p>OUR SKILLS COVER</p>
         </motion.div>

@@ -5,7 +5,7 @@ import { bannerCards } from '../../public/images/banners/banner';
 export const BannerCards = () => {
 
 return (
-    <section id="bannercards" className="flex flex-col gap-[10vh] relative py-[10vh]">
+    <section id="bannercards" className="flex flex-col gap-[10vh] relative py-[5vh]">
         {bannerCards?.map((item,i) => (
             <Card
                 key={item.title}

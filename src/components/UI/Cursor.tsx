@@ -14,9 +14,6 @@ const Cursor = () => {
 
         window.addEventListener('mousemove', handleMouseMove);
 
-       // const elementsWithClassMain = document.querySelectorAll('.main');
-
-
         const links = document.querySelectorAll('a');
         links.forEach(link => {
             link.addEventListener('mouseenter', handleMouseEnter);

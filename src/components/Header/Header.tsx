@@ -79,7 +79,7 @@ const Header = () => {
       <AnimatePresence>
       {isMenuOpen && (
         <motion.div
-          className="menu fixed bg-darkgray w-full h-full"
+          className="menu fixed bg-darkgray w-full h-full z-50"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

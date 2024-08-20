@@ -39,6 +39,8 @@ const MenuToggle = ({isMenuOpen, setIsMenuOpen} : MenuToggleProps) => {
        <SlideText text="Menu" />
 
         <motion.div
+            id="menuHam"
+            whileHover={{ scale: 1.2, }}
             initial={false}
             animate={isMenuOpen ? "open" : "closed"}
             onClick={() => setIsMenuOpen(!isMenuOpen)}

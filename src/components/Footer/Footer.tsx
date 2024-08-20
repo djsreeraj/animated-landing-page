@@ -4,26 +4,28 @@ import { IconChevronUp, IconShare } from '@tabler/icons-react';
 import SlideText from '../UI/SlideText';
 
 export const Footer = () => {
-  return (
+    const backToTop = () => {
+        const element = document.getElementById('top');
+        if (element) {
+            element.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+    };
+    
+    return (
     <div className="min-h-[4rem] flex items-center justify-between mt-[12rem] bottom-0 left-0 right-0  w-full 
     box-border cursor-pointer  z-10 px-4">
-        <div className="flex items-center text-[1rem] min-w-[10rem]">
-            <div
+        <div className="flex items-center text-[1rem] min-w-[10rem]" onClick={backToTop}>
+            <motion.div
             className="w-full h-full pointer-events-auto scale: hover:scale-130 transition-transform"
-            onClick={() =>
-                window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: "smooth",
-                })
-            }
+            whileHover={{ scale: 1.3 }}
+            
             >
-                <IconChevronUp />
-            </div>
-
+               <IconChevronUp /> 
+            </motion.div>
             <SlideText text="Back Top" styleClass={"footer"}/>
-
- 
         </div>
 
         <div className="text-center text-[0.9rem]  mt-1 tracking-tighter ">
