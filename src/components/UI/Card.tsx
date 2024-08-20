@@ -39,17 +39,17 @@ export const Card = ({ title, imgUrl, video }: ICardProps) => {
 		// }}
 		initial = {{
 			opacity: 0,
-			scale: 0,
+			scale: 0.7,
 			y:-20
 		}}
 		whileInView={{
 			opacity: 1,
 			scale: 1,
-			y:-30
+			y:0
 
 		}}
 		viewport={{
-			margin:'200px'
+			margin:'50px'
 		}}
 		transition={{ duration: 0.5, delay: 0.25}}
 		className="relative h-[80vh] w-[90vw] overflow-hidden rounded-xl bg-inherit">

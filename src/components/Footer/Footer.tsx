@@ -84,7 +84,7 @@ export const Footer = () => {
             className="flex mt-2"
         >
             {["In", "Fb", "Be", "Tw", "Db"].map((e) => (
-                <p key={e} className="mr-8 text-[0.9rem] mt-1 tracking-tight ">{e}</p>
+                <motion.p whileHover={{ scale: 1.3, y:-3 }}  key={e} className="mr-8 text-[0.9rem] mt-1 tracking-tight ">{e}</motion.p>
             ))}
         </motion.div>
         </motion.div>
