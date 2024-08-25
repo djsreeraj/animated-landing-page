@@ -2,7 +2,7 @@ import React, {
 	useEffect,
 	useRef,
 } from "react";
-import { motion, useScroll } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
 type ICardProps = {
@@ -13,46 +13,43 @@ type ICardProps = {
 
 export const Card = ({ title, imgUrl, video }: ICardProps) => {
 		const ref = useRef<HTMLDivElement>(null);
-		// const { scrollYProgress } = useScroll({
-		// 	target: ref,
-		// 	offset: ["-10% start", "end start"],
-		// });
+		const { scrollYProgress } = useScroll({
+			target: ref,
+			offset: ["1 0", "0.99 1"],
+		});
 
-		// useMotionValue(scrollYProgress, "change",
-		// 	(latest) => {
-		// 	console.log(latest)
-		// 	});
+		const scaleProgress = useTransform(scrollYProgress, [0,1], [0.5,1]);
+		const blurProgress = useTransform(scrollYProgress, [0,0.3], [0,1]);
+		// const y1Progress = useTransform(scrollYProgress, [0.9, 1], [0,-750]);
 
-		// const { scrollYProgress } = useScroll()
+		const marginProgress = useTransform(scrollYProgress, [0,0.3], [0,1]);
 
-		// useEffect(() => {
-		//   console.log(scrollYProgress)
-		// }, [scrollYProgress])
+			useEffect(() => {
+		  console.log('bb',blurProgress)
+		}, [blurProgress])
 
 		return (
 	<motion.section 
+		ref={ref}
+		style={{
+			scale: scaleProgress,
+			opacity: scrollYProgress,
+			// y: y1Progress,
+			marginTop:  `-${Number(marginProgress) * 300}px` , //'-300px',
+			filter: `blur(${Number(blurProgress)* 1}px)`
 
-	ref={ref}
-		// style={{
-		// 	scale: scrollYProgress,
-		// 	opacity: scrollYProgress,
+		}}
+
+		// initial = {{
+		// 	y:0
 		// }}
-		initial = {{
-			opacity: 0,
-			scale: 0.7,
-			y:-20
-		}}
-		whileInView={{
-			opacity: 1,
-			scale: 1,
-			y:0
 
-		}}
-		viewport={{
-			margin:'50px'
-		}}
+		// viewport={{
+        //     margin: "0% 0% 90% 0%"
+        // }}
+		
 		transition={{ duration: 0.5, delay: 0.25}}
-		className="relative h-[80vh] w-[90vw] overflow-hidden rounded-xl bg-inherit">
+		className="relative h-[80vh] w-[90vw] overflow-hidden rounded-xl bg-inherit transition">
 			{/* Card content */}
 			<div className="relative h-full" >
 				{/* Image */}

@@ -11,14 +11,19 @@ import { SubTitle } from "@/components/SubTitle";
 import ButtonPrimary from "@/components/UI/ButtonPrimary";
 import Cursor from "@/components/UI/Cursor";
 import { useState } from "react";
+import { ReactLenis } from '@/libs/lenis'
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
+  const [scollDuration, setScrollDuration] = useState<number>(1.5);
 
   return (
     <main >
-        <PageLoader loading={loading} setLoading={setLoading}  />
-        {!loading && <div className={"bg-darkgray px-20 py-12 hide-scrollbar overflow-y-scroll  h-screen"}>
+    <ReactLenis root options={{ 
+      // lerp: 0.9, 
+      duration: scollDuration }}>
+    <PageLoader loading={loading} setLoading={setLoading}  />
+        {!loading && <div className={"bg-darkgray px-20 py-12 hide-scrollbar"}>
           <Header />
           <HeroSection />
           <Cursor />
@@ -33,15 +38,15 @@ export default function Home() {
               <ButtonPrimary text={"See All works"}/>
            </div>
 
-           <SkillSection />
+           <SkillSection setScrollDuration={setScrollDuration} />
            <ContactSection />
            <FooterHero />
            <Footer />
+      </div>
+      }
 
-           
+      </ReactLenis>
 
-</div>
-}
 
     </main>
   );
