@@ -23,7 +23,8 @@ export default function Home() {
       // lerp: 0.9, 
       duration: scollDuration }}>
     <PageLoader loading={loading} setLoading={setLoading}  />
-        {!loading && <div className={"bg-darkgray px-20 py-12 hide-scrollbar"}>
+        {!loading && <div className={"bg-darkgray sm:px-4 md:px-8 lg:px-12 xl:px-20 py-12 hide-scrollbar"}>
+
           <Header />
           <HeroSection />
           <Cursor />

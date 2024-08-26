@@ -19,8 +19,9 @@ const contactData: ContactInfo[] = [
 
 const ContactSection: React.FC = () => {
   return (
-    <div className="flex justify-center space-x-36 px-6 my-16  space-y-4">
-      {contactData.map((item, index) => (
+<div className="flex flex-wrap justify-center sm:space-x-4 md:space-x-12 lg:space-x-24 xl:space-x-36 px-2 sm:px-4 md:px-6 
+my-4 sm:my-8 md:my-12 lg:my-16 space-y-1 sm:space-y-4 md:space-y-4 lg:space-y-4">
+{contactData.map((item, index) => (
         <ContactCard key={index} type={item.type} value={item.value} />
       ))}
     </div>

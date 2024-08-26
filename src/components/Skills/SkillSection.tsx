@@ -55,13 +55,13 @@ const SkillSection = ({setScrollDuration} : {setScrollDuration: (value: number) 
         }} 
         
         id="title"          
-        className={`relative text-xs bg-black ${isSticky ? 'sticky -top-8 z-48' : '' }`}
+        className={`relative text-xs bg-black ${isSticky ? 'sticky -top-8 z-68' : '' }`}
 >
             <p>OUR SKILLS COVER</p>
         </motion.div>
 
         <motion.div         ref={skillsRef}
- id="skills" className='flex z-40 flex-col justify-start align-top items-center mt-[7rem]'>
+ id="skills" className='flex z-60 flex-col justify-start align-top items-center mt-[7rem]'>
         {
                 skills.map((s) => <Skill key ={s} title={s}/>)
             }
@@ -87,7 +87,10 @@ function Skill({title}: {title: string}){
                     viewport={{
                         margin: "0% 0% -55% 0%"
                     }}  
-                    className={`text-white -mt-16 font-caps text-[10rem] `}>
+                    className={`text-white sm:-mt-4 md:-mt-8 lg:-mt-12 xl:-mt-16 font-caps xs:text-[8rem]
+                       sm:text-[8rem] md:text-[8rem] lg:text-[9rem] xl:text-[10rem]`}
+                    
+                    >
                         
                         {title} 
                     

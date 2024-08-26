@@ -15,9 +15,16 @@ export const Footer = () => {
     };
     
     return (
-    <div className="min-h-[4rem] flex items-center justify-between mt-[12rem] bottom-0 left-0 right-0  w-full 
-    box-border cursor-pointer  z-10 px-4">
-        <div className="flex items-center text-[1rem] min-w-[10rem]" onClick={backToTop}>
+    <div className="min-h-[4rem] flex items-center justify-between 
+    sm:mt-[2rem]  md:mt-[2rem]   lg:mt-[12rem] xl:mt-[12rem] 
+    bottom-0 left-0 right-0  w-full 
+    box-border cursor-pointer  z-10 ">
+        <div 
+        //    className="flex items-center text-[1rem] min-w-[10rem]" 
+            className="flex items-center 
+            xs:text-sm sm:text-sm md:text-base lg:text-lg xl:text-[1rem] 
+            min-w-[5rem] sm:min-w-[7rem] md:min-w-[9rem] lg:min-w-[10rem]"
+            onClick={backToTop}>
             <motion.div
             className="w-full h-full pointer-events-auto scale: hover:scale-130 transition-transform"
             whileHover={{ scale: 1.3 }}
@@ -57,7 +64,7 @@ export const Footer = () => {
         <motion.div
             initial="initial"
              whileHover="hovered"
-             className="flex flex-col items-center text-sm"
+             className="flex flex-col items-center text-sm -mr-12"
         >
         <motion.div
             variants={{

@@ -75,17 +75,17 @@ const Header = () => {
         <MenuToggle isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
     </nav>
     
-    <div className='relative mt-16'>
+    <div className='relative bg-darkgray -mt-12 pt-12'>
       <AnimatePresence>
       {isMenuOpen && (
         <motion.div
-          className="menu fixed bg-darkgray w-full h-full z-50"
+          className="menu fixed bg-darkgray w-full h-full z-50 pt-20 -mt-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
         >
-         <motion.ul id="menu__main" className="menu with-js opacity sm-screen">
+         <motion.ul id="menu__main" className="menu with-js opacity sm-screen ">
             {menuList.map((menu, index) => (
               <motion.li
                 key={menu}
