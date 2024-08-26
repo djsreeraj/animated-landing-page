@@ -21,7 +21,12 @@ export default function Home() {
     <main >
     <ReactLenis root options={{ 
       // lerp: 0.9, 
-      duration: scollDuration }}>
+      duration: scollDuration,
+      smoothWheel: true,
+			syncTouch: true,
+			syncTouchLerp: 0.1,
+      
+      }}>
     <PageLoader loading={loading} setLoading={setLoading}  />
         {!loading && <div className={"bg-darkgray sm:px-4 md:px-8 lg:px-12 xl:px-20 py-12 hide-scrollbar"}>
 

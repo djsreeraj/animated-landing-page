@@ -40,7 +40,7 @@ const SkillSection = ({setScrollDuration} : {setScrollDuration: (value: number) 
       }, []);
       
   return (
-    <div className='flex flex-col  items-center mt-[4rem]'>
+    <div className='flex flex-col relative items-center mt-[4rem]'>
         <motion.div 
          ref={titleRef}
 
@@ -55,12 +55,13 @@ const SkillSection = ({setScrollDuration} : {setScrollDuration: (value: number) 
         }} 
         
         id="title"          
-        className={`relative text-xs bg-black ${isSticky ? 'sticky -top-8 z-68' : '' }`}
+        className={`relative bg-darkgray bg-opacity-85 h-16 w-[60vw] text-xs  text-center sticky top-0 z-50}`}
 >
-            <p>OUR SKILLS COVER</p>
+            <p className='mt-10'>OUR SKILLS COVER</p>
         </motion.div>
 
-        <motion.div         ref={skillsRef}
+        <motion.div  ref={skillsRef} onViewportEnter={() => setScrollDuration(14.5)}
+        onViewportLeave={() => setScrollDuration(1.5)}
  id="skills" className='flex z-60 flex-col justify-start align-top items-center mt-[7rem]'>
         {
                 skills.map((s) => <Skill key ={s} title={s}/>)
