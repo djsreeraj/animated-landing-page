@@ -2,8 +2,11 @@ import React from 'react'
 import { SubTitle } from '../SubTitle'
 import Title from '../Title'
 import { motion } from 'framer-motion';
+import { useAppContext } from '@/contexts/AppContext';
 
 const FooterHero = () => {
+  const {  setCursorType } = useAppContext();
+
   return (
     <motion.div
 
@@ -16,6 +19,9 @@ const FooterHero = () => {
     viewport={{
         margin: "0% 0% -50% 0%"
     }} 
+
+    onMouseEnter={() => setCursorType("aboutSection")}
+		onMouseLeave={() => setCursorType("normal")}
     
     className='mt-[12rem]'>
         

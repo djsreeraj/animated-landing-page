@@ -3,11 +3,13 @@ import { Logo } from '../../../public/images/images'
 import MenuToggle from '../Hamburger'
 import { useEffect, useState } from 'react';
 import './Header.css'
+import { useAppContext } from '@/contexts/AppContext';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuList = ['PORTFOLIO', 'ABOUT', 'STORIES', 'CONTACT', 'MORE']
     const [hoveredIndex, setHoveredIndex] = useState<null| number>(null);
+    const {  setCursorType } = useAppContext();
 
     useEffect(() => {
         document.body.style.overflow = isMenuOpen ? 'hidden' : 'auto';
@@ -71,7 +73,10 @@ const Header = () => {
   return (
     <>
         <nav className="flex justify-between items-center fixed top-8 left-16 right-16 px-4 pt-2 z-50">
-        <Logo />
+          <span onMouseEnter={() => setCursorType("")}
+                onMouseLeave={() => setCursorType("normal")}>
+             <Logo />
+          </span>
         <MenuToggle isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
     </nav>
     

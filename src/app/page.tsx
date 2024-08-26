@@ -12,6 +12,8 @@ import ButtonPrimary from "@/components/UI/ButtonPrimary";
 import Cursor from "@/components/UI/Cursor";
 import { useState } from "react";
 import { ReactLenis } from '@/libs/lenis'
+import CursorMask from "@/components/UI/CursorMask";
+import { AppStateProvider } from "@/contexts/AppContext";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -27,30 +29,29 @@ export default function Home() {
 			syncTouchLerp: 0.1,
       
       }}>
-    <PageLoader loading={loading} setLoading={setLoading}  />
-        {!loading && <div className={"bg-darkgray sm:px-4 md:px-8 lg:px-12 xl:px-20 py-12 hide-scrollbar"}>
+      <AppStateProvider>
+        <PageLoader loading={loading} setLoading={setLoading}  />
+          {!loading && <div className={"bg-darkgray sm:px-4 md:px-8 lg:px-12 xl:px-20 py-12 hide-scrollbar"}>
+              <Header />
+              <HeroSection />
+              {/* <Cursor /> */}
+              <CursorMask />
+              <BannerCards />
 
-          <Header />
-          <HeroSection />
-          <Cursor />
-          <BannerCards />
-      
-           <div className="flex mt-xl flex-col justify-center items-center gap-10" >
+              <div className="flex mt-xl flex-col justify-center items-center gap-10" >
+                  <SubTitle 
+                    text={"CRAFTING WEBSITES WHERE THE ELEGANCE <br/> OF DESIGN INTERSECTS WITH THE SCIENCE OF SELLING PRODUCTS."}
+                  />
+                  <ButtonPrimary text={"See All works"}/>
+              </div>
 
-            <SubTitle 
-              text={"CRAFTING WEBSITES WHERE THE ELEGANCE <br/> OF DESIGN INTERSECTS WITH THE SCIENCE OF SELLING PRODUCTS."}
-            />
-
-              <ButtonPrimary text={"See All works"}/>
-           </div>
-
-           <SkillSection setScrollDuration={setScrollDuration} />
-           <ContactSection />
-           <FooterHero />
-           <Footer />
-      </div>
-      }
-
+              <SkillSection setScrollDuration={setScrollDuration} />
+              <ContactSection />
+              <FooterHero />
+              <Footer />
+          </div>
+          }
+      </AppStateProvider>
       </ReactLenis>
 
 
