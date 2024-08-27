@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import SlideText from './UI/SlideText';
+import StickyCursor from './UI/StickyCursor';
 
 interface MenuToggleProps {
     isMenuOpen: boolean;
@@ -34,13 +35,16 @@ const MenuToggle = ({isMenuOpen, setIsMenuOpen} : MenuToggleProps) => {
   };
 
   return (
-    <div className='flex cursor-pointer gap-10 text-[0.9rem]'>
+    <div className='flex cursor-pointer gap-10 text-[0.9rem] ' 
+    onClick={() => setIsMenuOpen(!isMenuOpen)}
+>
 
        <SlideText text="Menu" />
 
+      <StickyCursor>
         <motion.div
             id="menuHam"
-            whileHover={{ scale: 1.2, }}
+            className='pointer-events-none'
             initial={false}
             animate={isMenuOpen ? "open" : "closed"}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -82,6 +86,7 @@ const MenuToggle = ({isMenuOpen, setIsMenuOpen} : MenuToggleProps) => {
                 }}
             />
             </motion.div>
+      </StickyCursor>
     </div>
    
   );

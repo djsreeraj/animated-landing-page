@@ -36,6 +36,24 @@ body {
     text-sm font-semibold backdrop-blur-lg;
 }
 
+.sticky__cursor {
+	@apply !h-16 !w-16 bg-transparent opacity-100 
+    border-2 border-yellow-400 ;
+}
+
+.sticky__cursor__bounds{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: all;
+}
+
+.sticky__cursor__bounds:hover{
+  transform: scale(2);
+}
+
 /* @layer utilities {
   .text-balance {
     text-wrap: balance;
